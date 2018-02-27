@@ -1,0 +1,22 @@
+CREATE TABLE BOOKS(ISBN NUMBER(30)not null,book_title varchar(50) not null, category varchar(50) not null, rental_price NUMBER(10) not null,status varchar(50), author varchar(50) not null, publisher varchar(50) not null, primary key(ISBN));
+
+CREATE TABLE EMPLOYEE(employee_id NUMBER(10) not null, employee_name varchar(50) not null, position varchar(30) not null, salary NUMBER(10) not null,
+primary key(employee_id));
+
+CREATE TABLE ISSUE_STATUS(issue_id NUMBER(10) not null, issued_cust NUMBER(10) not null, issued_book_name varchar(50) not null, issue_date Date not null, isbn_book NUMBER(10) not null, primary key(issue_id), constraint fk_isbn_book foreign key(isbn_book) references BOOKS(ISBN),constraint fk_issued_cust foreign key(issued_cust) references customer(customer_id));
+
+CREATE TABLE RETURN_STATUS(return_id NUMBER(10) not null, return_cust NUMBER(10) not null, returned_book_name varchar(50) not null, return_date Date not null, isbn_book2 NUMBER(10) not null, primary key(return_id), constraint fk_isbn_book2 foreign key(isbn_book2) references BOOKS(ISBN),constraint fk_return_cust foreign key(return_cust) references ISSUE_STATUS(issue_id));
+
+CREATE TABLE BOOKS(ISBN NUMBER(30)not null,book_title varchar(50) not null, category varchar(50) not null, rental_price NUMBER(10) not null,status varchar(50), author varchar(50) not null, publisher varchar(50) not null, primary key(ISBN));
+
+CREATE TABLE EMPLOYEE(employee_id NUMBER(10) not null, employee_name varchar(50) not null, position varchar(30) not null, salary NUMBER(10) not null,
+primary key(employee_id));
+
+CREATE TABLE CUSTOMER(customer_id NUMBER(10) not null, customer_name varchar(50), customer_address varchar(100) not null, registration_date Date not null, primary key(customer_id));
+
+CREATE TABLE BRANCH(branch_no NUMBER(10) not null, manager_id NUMBER(10) not null, branch_address varchar(100) not null, contact_no NUMBER(10) not null, primary key(branch_no));
+
+CREATE TABLE ISSUE_STATUS(issue_id NUMBER(10) not null, issued_cust NUMBER(10) not null, issued_book_name varchar(50) not null, issue_date Date not null, isbn_book NUMBER(10) not null, primary key(issue_id), constraint fk_isbn_book foreign key(isbn_book) references BOOKS(ISBN),constraint fk_issued_cust foreign key(issued_cust) references customer(customer_id));
+
+CREATE TABLE RETURN_STATUS(return_id NUMBER(10) not null, return_cust NUMBER(10) not null, returned_book_name varchar(50) not null, return_date Date not null, isbn_book2 NUMBER(10) not null, primary key(return_id), constraint fk_isbn_book2 foreign key(isbn_book2) references BOOKS(ISBN),constraint fk_return_cust foreign key(return_cust) references ISSUE_STATUS(issue_id));
+

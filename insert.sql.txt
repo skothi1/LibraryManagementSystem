@@ -1,0 +1,27 @@
+insert into BOOKS values(1000,'book1','comedy',5,'availabe','author1','pub1');
+insert into BOOKS values(1001,'book2','scifi',3,'availabe','author2','pub2');
+insert into BOOKS values(1002,'book3','tradegy',7,'un-availabe','author3','pub3');
+insert into BOOKS values(1003,'book4','romance',8,'un-availabe','author4','pub4');
+
+alter table branch add constraint fk_manager_id foreign key(manager_id) references employee(employee_id);
+
+insert into employee values(991, 'emp1',',manager',30000);
+insert into employee values(992, 'emp2','worker',10000);
+insert into employee values(993, 'emp3','reader',20000);
+insert into employee values(994, 'emp4','assistant',20000);
+
+insert into branch values(1,991,'branch_addr1',9878789098);
+insert into branch values(2,992,'branch_addr1',9578789098);
+insert into branch values(3,993,'branch_addr2',9678789098);
+insert into branch values(4,994,'branch_addr3',9078789098);
+
+insert into customer values(11,'cus1','hom1','20.JAN.2010');
+insert into customer values(12,'cus2','hom2','20.FEB.2010');
+insert into customer values(13,'cus3','hom3','20.MAR.2010');
+insert into customer values(14,'cus4','hom4','20.APR.2010');
+
+insert into issue_status values(51,12,'book1','20.MAY.2010',1001);
+insert into issue_status values(52,13,'book3','20.JUN.2010',1003);
+
+insert into return_status values(61,51,'book1', '20.JUL.2010',1001);
+insert into return_status values(62,52,'book3', '20.AUG.2010',1003);

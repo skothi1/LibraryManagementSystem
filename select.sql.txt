@@ -1,0 +1,41 @@
+Select Book_title,rental_price,status,author,publisher
+
+   from books
+
+   where category = 'romance';
+
+  
+
+Select isbn,Book_title,rental_price,status,author,publisher,issue_date
+
+   from books join issue_status
+
+   on  books.ISBN = issue_status.ISBN_BOOK
+
+   order by books.ISBN;
+
+ 
+
+Select employee_name,position,salary,contact_no
+
+    from employee,branch
+
+    where employee.EMPLOYEE_ID = branch.MANAGER_ID;
+
+   
+
+Select customer_name, Customer_address, registration_date
+
+    from customer
+
+        where CUSTOMER_ID = (Select issued_cust from issue_status where issue_date > '21.MAY.2010');
+
+       
+
+        
+
+Select book_title, category, rental_price, status, author, publisher
+
+    from Books
+
+        where ISBN = (Select isbn_book2 from return_status where return_id = 61);
